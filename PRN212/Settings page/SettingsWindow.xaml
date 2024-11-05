@@ -27,7 +27,7 @@
 
         <!-- Nome -->
         <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Name" VerticalAlignment="Top" Style="{StaticResource TextUp}" FontSize="12" Height="15" Width="42" Margin="432,152,0,0" FontFamily="Montserrat"/>
-        <TextBox x:Name="tb_primeironome" TextWrapping="Wrap" Margin="432,172,712,568" TextChanged="tb_primeironome_TextChanged" Style="{StaticResource CustomTextBoxStyle}"/>
+        <TextBox x:Name="tb_name" TextWrapping="Wrap" Margin="432,172,712,568" TextChanged="tb_primeironome_TextChanged" Style="{StaticResource CustomTextBoxStyle}"/>
 
         <!-- E-Mail -->
         <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="E-Mail" VerticalAlignment="Top" Style="{StaticResource TextUp}" FontSize="12" Height="15" Width="42" Margin="432,205,0,0" FontFamily="Montserrat"/>
@@ -39,13 +39,13 @@
 
         <!-- Password Nova -->
         <TextBlock x:Name="textPasswordNova" HorizontalAlignment="Left" TextWrapping="Wrap" Text="New Password" VerticalAlignment="Top" Style="{StaticResource TextUp}" FontSize="12" Height="14" Width="136" Margin="695,205,0,0" FontFamily="Montserrat"/>
-        <PasswordBox x:Name="tb_passwordNova" Margin="695,223,449,516" PasswordChanged="PasswordBox_PasswordChanged" Style="{StaticResource CustomPasswordBoxStyle}"/>
+        <PasswordBox x:Name="tb_newPassword" Margin="695,223,449,516" PasswordChanged="PasswordBox_PasswordChanged" Style="{StaticResource CustomPasswordBoxStyle}"/>
 
         <!-- Botão Guardar -->
-        <Button Content="Save" Click="Guardar_Click" Style="{StaticResource buttonGuardar}" />
+        <Button Content="Save" Click="Save_Click" Style="{StaticResource buttonGuardar}" />
 
         <!-- Botão Terminar Sessão -->
-        <Button Content="End Session" Click="TerminarSessao_Click"  Style="{StaticResource buttonLogout}" Margin="1142,224,0,0" />
+        <Button Content="End Session" Click="EndSession_Click"  Style="{StaticResource buttonLogout}" Margin="1142,224,0,0" />
 
         <Line X1="283" Y1="280" X2="1335" Y2="280" Stroke="#4e4e4e" StrokeThickness="1" Grid.ColumnSpan="3"/>
 
@@ -70,7 +70,7 @@
         <TextBlock HorizontalAlignment="Left" Margin="302,529,0,0" TextWrapping="Wrap" Text="Interface" VerticalAlignment="Top" Background="Transparent" FontSize="13" Style="{StaticResource TitulosPropriedadesEventos}" FontFamily="Montserrat"/>
 
         <TextBlock HorizontalAlignment="Left" Margin="290,573,0,0" TextWrapping="Wrap" Text="Change Color Scheme" VerticalAlignment="Top" Background="Transparent" FontSize="16" Style="{StaticResource TextUp}" FontFamily="Montserrat"/>
-        <Button Click="Personalizar_Click" Style="{StaticResource buttonGuardar}" Margin="1163,575,0,0">
+        <Button Click="Customize_Click" Style="{StaticResource buttonGuardar}" Margin="1163,575,0,0">
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Customize" />
                 <Icon:PackIconRemixIcon Kind="PaintFill" Width="20" Height="20" Style="{StaticResource IconSide3}" Margin="5,2,0,0"/>
@@ -112,7 +112,7 @@
                 <!-- Email do Utilizador -->
                 <TextBlock x:Name="EmailTextBlock" FontFamily="Montserrat" Text="email@exemplo.com" Style="{StaticResource TextEmail}"  Margin="76,46,955,707" />
             </Grid>
-            <Button Click="Definições_Click" Style="{StaticResource buttonPerfil}" Margin="6,10,1130,694"/>
+            <Button Click="SettingWindow_Click" Style="{StaticResource buttonPerfil}" Margin="6,10,1130,694"/>
         </Grid>
 
         <!-- .-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-. -->
@@ -126,21 +126,21 @@
                 </Grid.RowDefinitions>
 
                 <!-- Botôes Navegação e Layout -->
-                <Button Content="Home" Style="{StaticResource button1}"  Click="PáginaInicial_Click" Margin="25,26,25,597" Grid.RowSpan="2" />
+                <Button Content="Home" Style="{StaticResource button1}"  Click="Home_Click" Margin="25,26,25,597" Grid.RowSpan="2" />
                 <Icon:PackIconCodicons Kind="Home" Width="20" Height="20" Style="{StaticResource IconSide}" Margin="41,-1,0,0" Grid.Row="1"/>
-                <Button Content="Calendar" Style="{StaticResource button1}" Click="Calendário_Click" Margin="25,40,25,543" Grid.Row="1"/>
+                <Button Content="Calendar" Style="{StaticResource button1}" Click="Calendar_Click" Margin="25,40,25,543" Grid.Row="1"/>
                 <Icon:PackIconCoolicons Kind="Calendar" Width="20" Height="20" Style="{StaticResource IconSide1}" Margin="41,55,0,0" Grid.Row="1"/>
-                <Button Content="Tasks" Style="{StaticResource button1}" Click="Tarefas_Click" Margin="25,94,25,489" Grid.Row="1" />
+                <Button Content="Tasks" Style="{StaticResource button1}" Click="TaskWindow_Click" Margin="25,94,25,489" Grid.Row="1" />
                 <Icon:PackIconFontAwesome Kind="TableListSolid" Width="20" Height="20" Style="{StaticResource IconSide2}" Margin="41,109,0,0" Grid.Row="1"/>
                 <Line X1="6" Y1="190" X2="244" Y2="190" Stroke="#4e4e4e" StrokeThickness="1" Grid.RowSpan="2"/>
-                <Button Content="Customize" Style="{StaticResource button1}" Click="Personalizar_Click" Margin="25,155,25,428" Grid.Row="1" />
+                <Button Content="Customize" Style="{StaticResource button1}" Click="Customize_Click" Margin="25,155,25,428" Grid.Row="1" />
                 <Icon:PackIconRemixIcon Kind="PaintFill" Width="20" Height="20" Style="{StaticResource IconSide3}" Margin="41,169,0,0" Grid.Row="1"/>
-                <Button Content="Settings" Style="{StaticResource buttonSelected}" Click="Definições_Click" Margin="25,209,25,374" Grid.Row="1" />
+                <Button Content="Settings" Style="{StaticResource buttonSelected}" Click="SettingWindow_Click" Margin="25,209,25,374" Grid.Row="1" />
                 <Icon:PackIconVaadinIcons Kind="CogOutline" Width="20" Height="20" Style="{StaticResource IconSide4}" Margin="41,223,0,0" Grid.Row="1"/>
-                <Button Content="Help" Style="{StaticResource button1}" Click="Ajuda_Click" Margin="25,263,25,320" Grid.Row="1" />
+                <Button Content="Help" Style="{StaticResource button1}" Click="HelpWindow_Click" Margin="25,263,25,320" Grid.Row="1" />
                 <Icon:PackIconMaterial Kind="HelpCircleOutline" Width="20" Height="20" Style="{StaticResource IconSide5}" Margin="41,278,0,0" Grid.Row="1"/>
                 <Line X1="6" Y1="365" X2="244" Y2="365" Stroke="#4e4e4e" StrokeThickness="1" Grid.RowSpan="2"/>
-                <Button Content="Exit Application" Style="{StaticResource buttonQuit}" Margin="25,564,25,18" Click="Sair_Click" Grid.Row="1"/>
+                <Button Content="Exit Application" Style="{StaticResource buttonQuit}" Margin="25,564,25,18" Click="Exit_Click" Grid.Row="1"/>
                 <Icon:PackIconUnicons Kind="SignoutLine"  Width="20" Height="20" Style="{StaticResource IconSide6}" Margin="41,579,0,0" Grid.Row="1"/>
             </Grid>
         </Border>
